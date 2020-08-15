@@ -7,7 +7,7 @@ const path = require('path');
 const PORT = process.env.PORT || 5000;
 
 const NodeCache = require('node-cache');
-const idCache = new NodeCache( { stdTTL: 100, checkperiod: 120 } );
+const idCache = new NodeCache( { stdTTL: 60 * 60 * 24, checkperiod: 120 } );
 
 const app = express()
   .use(express.json())
@@ -46,7 +46,7 @@ if (CAPTCHA_TYPE == 'reCaptcha-v3') {
 
 const rateLimit = require('express-rate-limit');
 const verifyRateLimiter = rateLimit({
-    windowMs: 15 * 60 * 1000, // 15 minutes
+    windowMs: 2 * 60 * 1000, // 2 minutes
     max: 5, // limit each IP to 5 requests per windowMs
     message: "Too many verification from this IP, please try again later"
   });
