@@ -46,7 +46,7 @@ if (CAPTCHA_TYPE == 'reCaptcha-v3') {
 
 const rateLimit = require('express-rate-limit');
 const verifyRateLimiter = rateLimit({
-    windowMs: 2 * 60 * 1000, // 2 minutes
+    windowMs: 10 * 60 * 1000, // 10 minutes
     max: 5, // limit each IP to 5 requests per windowMs
     message: "Too many verification from this IP, please try again later"
   });
