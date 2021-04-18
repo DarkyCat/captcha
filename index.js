@@ -48,7 +48,7 @@ const rateLimit = require('express-rate-limit');
 const verifyRateLimiter = rateLimit({
     windowMs: 10 * 60 * 1000, // 10 minutes
     max: 5, // limit each IP to 5 requests per windowMs
-    message: "Too many verification from this IP, please try again later"
+    message: "Много попыток пройти верификацию с 1-го айпи!"
   });
 
 app
